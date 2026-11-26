@@ -1,0 +1,13 @@
+package com.example.mydatasiswa.repositori
+
+import com.example.mydatasiswa.apiservice.ServiceApiSiswa
+import com.example.mydatasiswa.modeldata.DataSiswa
+import retrofit2.Response
+
+interface RepositoryDataSiswa {
+    suspend fun getDataSiswa(): List<DataSiswa>
+    suspend fun postDataSiswa(dataSiswa: DataSiswa): Response<Void>
+}
+
+class JaringanRepositoryDataSiswa(
+    private val serviceApiSiswa: ServiceApiSiswa
