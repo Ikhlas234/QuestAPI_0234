@@ -37,3 +37,4 @@ class HomeViewModel(private val repositoryDataSiswa: RepositoryDataSiswa) : View
             }
         }
     }
+}
