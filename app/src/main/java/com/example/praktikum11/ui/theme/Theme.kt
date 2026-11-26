@@ -50,3 +50,9 @@ fun Praktikum11Theme(
         else -> LightColorScheme
     }
 
+    MaterialTheme(
+        colorScheme = colorScheme,
+        typography = Typography,
+        content = content
+    )
+}
