@@ -73,3 +73,32 @@ fun HomeScreen(
         },
     ) { innerPadding ->
         HomeBody(
+            statusUiSiswa = viewModel.listSiswa,
+            onSiswaClick = onDetailClick,
+            retryAction = viewModel::loadSiswa,
+            modifier = Modifier
+                .padding(innerPadding)
+                .fillMaxSize()
+        )
+    }
+}
+
+@Composable
+fun HomeBody(
+    statusUiSiswa: StatusUiSiswa,
+    onSiswaClick: (Int) -> Unit,
+    retryAction: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = modifier
+    ) {
+        when (statusUiSiswa) {
+            is StatusUiSiswa.Loading -> LoadingScreen(modifier = Modifier.fillMaxSize())
+            is StatusUiSiswa.Success -> DaftarSiswa(
+                itemSiswa = statusUiSiswa.siswa,
+                onSiswaClick = { onSiswaClick(it.id) },
+                modifier = Modifier.fillMaxWidth()
+            )
+            is StatusUiSiswa.Error -> ErrorScreen(
