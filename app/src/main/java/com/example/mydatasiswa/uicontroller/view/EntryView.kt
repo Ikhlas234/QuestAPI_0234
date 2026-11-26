@@ -133,3 +133,15 @@ fun FormTambahSiswa(
             singleLine = true
         )
         if (enabled) {
+            Text(
+                text = stringResource(R.string.required_field),
+                modifier = Modifier.padding(start = dimensionResource(id = R.dimen.padding_medium))
+            )
+        }
+        HorizontalDivider(
+            modifier = Modifier.padding(bottom = dimensionResource(id = R.dimen.padding_medium)),
+            thickness = dimensionResource(id = R.dimen.padding_small),
+            color = DividerDefaults.color
+        )
+    }
+}
